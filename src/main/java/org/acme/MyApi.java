@@ -2,7 +2,6 @@ package org.acme;
 
 import java.util.Map;
 
-import io.smallrye.mutiny.Uni;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -16,6 +15,6 @@ public interface MyApi {
 	@GET
 	@Path("/endpoint")
 	@Produces({ "application/json" })
-	Uni<Pojo> testEndpoint(@QueryParam("testqueryparam") Map<String, Object> projection);
+	Pojo testEndpoint(@QueryParam("testqueryparam") Map<String, Object> projection);
 
 }
