@@ -41,14 +41,6 @@ public class JsonParamConverterProvider implements ParamConverterProvider {
 			return null;
 		}
 
-		MessageBodyReader<T> mbr = providers.getMessageBodyReader(rawType,
-				genericType,
-				annotations,
-				MediaType.APPLICATION_JSON_TYPE);
-		if (mbr == null || !mbr.isReadable(rawType, genericType, annotations, MediaType.APPLICATION_JSON_TYPE)) {
-			return null;
-		}
-
 		return new JsonParamConverter<>(objectMapper, rawType, genericType);
 	}
 
