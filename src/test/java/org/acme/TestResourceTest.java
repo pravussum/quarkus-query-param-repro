@@ -12,10 +12,13 @@ public class TestResourceTest {
     @Test
     public void testEndpoint() {
         given()
-          .when().get("/endpoint")
+          .when()
+		        .queryParam("testqueryparam", "{\"a\":\"b\",\"c\":\"d\"}")
+		        .get("/endpoint")
+
           .then()
              .statusCode(200)
-             .body(is("{\"field\":\"field\"}"));
+             .body(is("{\"field\":\"b\"}"));
     }
 
 }
